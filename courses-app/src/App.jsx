@@ -1,12 +1,11 @@
 import React from 'react'
 import { Header } from './components/Header'
-import { CourseCard } from './components/CourseCard'
-
+import Course from './components/Course'
 export const App = () => {
   return (
     <div>App
       <Header/>
-      <CourseCard/>
+      <Course/>
     </div>
   )
 }
