@@ -7,6 +7,7 @@ import {  mockedCoursesList } from '../mocks/mockedCoursesList'
 
 const Course = () => {
   return (
+    <div className='CourseCard'>
     <div className='course'> 
     <div className='search'>
     <SearchBar/>     
@@ -16,6 +17,7 @@ const Course = () => {
       <CourseCard key={course.id} authorIds={course.authors} title={course.title} duration={course.duration} description={course.description} creationDate={course.creationDate} />
     ))}
       </div>
+    </div>
   )
 }
 

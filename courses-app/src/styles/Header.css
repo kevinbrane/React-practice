@@ -1,0 +1,13 @@
+.Header {
+  display: flex;
+  border: 1px solid red;
+  padding: 20px;
+  cursor: default;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rightHeader {
+  display: flex;
+  gap: 10px;
+}

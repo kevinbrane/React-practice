@@ -1,5 +1,9 @@
-.course{
-    padding: 50px;    
+.CourseCard{
+    border: 1px solid #7cafc1;
+    padding: 20px;
+}
+
+.course{ 
     display: flex;
     flex-direction: column;
     gap: 10px;
