@@ -10,35 +10,36 @@ const CreateCourse = () => {
       <div className='create-container'>
         <div className='create'>
             <div className='title'>
-              <h3>Title</h3>
-              <Input placeHolderText='Enter title...'/>
+              <h3 className='title-label'>Title</h3>
+              <Input  borderColor='rgb(189 71 34 / 61%)' height={48} placeHolderText='Enter title...'/>
             </div>
             <Button>Create Course</Button>
         </div>
-        <h3>Description</h3>
-        <textarea  rows="4" cols="50" placeholder='Enter description'></textarea>
+        <h3 className='title-label'>Description</h3>
+        <textarea className='textarea' style={{border: "1px solid yellow"}}  rows="8" cols="235" placeholder='Enter description'></textarea>
       </div>
       <div className='create-info'>
         <div className='left-add-info'>
           <div className='add-author'>
-              <h6>Author name</h6>
-              <Input placeHolderText='Enter author name...' />
+              <h3 className='author-label'>Add author</h3>
+              <Input borderColor='rgb(189 71 34 / 61%)' height={35} placeHolderText='Enter author name...' />
               <Button>Create author</Button>
           </div>
           <div className='duration'>
-            <h6>Duration</h6>
-            <Input placeHolderText='Enter duration in minutes...' />
+            <h3 className='author-label'>Duration</h3>
+            <Input borderColor='rgb(189 71 34 / 61%)' height={35} placeHolderText='Enter duration in minutes...' />
+            <h2 className='duration-result'>Duration: <span className='duration-time'>00:00</span> hours</h2>
           </div>
           </div>
           <div className='right-add-info'>
-            <h6>Authors</h6>
+            <h3 className='author-label'>Authors</h3>
             <div className='authors'>
-              <h6>Vasily Dobkin</h6>
+              <h4 className='title-label'>Vasily Dobkin</h4>
               <Button>add author</Button>
             </div>
             <div className='course-authors'>
-              <h5>Course authors</h5>
-              <h6>author list is empty</h6>
+              <h4 className='course-authors-label'>Course authors</h4>
+              <h5 className='course-authors-labelList'>Author list is empty</h5>
             </div>
           </div>
       </div>

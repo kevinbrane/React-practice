@@ -1,6 +1,88 @@
+.createCourse{
+  padding: 23px;
+}
+
+
 .create{
       display: flex;
     justify-content: space-between;
-    padding: 15px 0 0 10px;
     align-items: center;
+}
+
+.title-label{
+  font-weight: 200;
+}
+
+.create-info{
+  border: 1px solid black;
+  padding: 20px 50px 50px 50px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 215px;
+  justify-content: space-between;
+}
+
+.textarea:focus-visible{
+  outline: 1px yellow;
+}
+
+.left-add-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.add-author{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.author-label{
+  font-weight: 600 ;
+  text-align: center;
+}
+
+.duration{
+  display: flex;
+    flex-direction: column;
+}
+
+.duration-result{
+  font-weight: 400;
+}
+
+.duration-time{
+  font-weight: 600;
+
+}
+
+.right-add-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authors{
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+
+.course-authors{
+  display: flex;
+  flex-direction: column;
+}
+
+.course-authors-label{
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.course-authors-labelList{
+  font-weight: 400;
 }
