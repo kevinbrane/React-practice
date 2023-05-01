@@ -7,7 +7,6 @@ import {Button} from './Button'
 export const CourseCard = ({title, duration, creationDate, description , authorIds = []}) => {
   const authorNames =  mockedAuthorsList.filter((author) => authorIds.includes(author.id))
   .map((author) => author.name);
-
   return (
     <div className='container'>
       <div className='container-left'>

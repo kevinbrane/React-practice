@@ -1,31 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Button } from './Button'
-import CourseCard from './CourseCard';
+import { Input } from './Input';
 import '../styles/Search.css'
+import { useSearchContext } from '../context/SearchContext';
+
 
 export const SearchBar = () => {
-
-  const [inputValue, setInputValue] = useState("");
-  const [searchResult, setSearchResult] = useState(null);
+  const [value, setValue] = useState("")
+  const { setSearch} = useSearchContext()
 
   function handleInputChange(event) {
-    setInputValue(event.target.value);
+    const value = event.target.value
+    setValue(value.trim())
   }
 
-  function handleSearch() {
-    
-    setSearchResult("Resultados de búsqueda para " + inputValue);
-    return{
-      
+  useEffect(()=> {
+    if(!value){
+      setSearch(value.toLocaleLowerCase())
     }
+  },[value, setSearch])
+
+  function handleSearch() { 
+    setSearch(value.toLocaleLowerCase()) 
   }
 
   return (
     <div className='search-container'>
-      <input id='input-value' className='search-input' type="search" placeholder='Enter course name or id...' value={inputValue} onChange={handleInputChange}/>
-      <Button onClick={handleSearch} >Search</Button>
-      <p>El valor del input es: {inputValue}</p>
+     <Input placeHolderText='Enter course name or id...' onChange={handleInputChange}/>
+      <Button  onClick={handleSearch} >Search</Button>
     </div>
   )
 }
