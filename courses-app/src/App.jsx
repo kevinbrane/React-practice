@@ -13,7 +13,7 @@ export const App = () => {
       <Header/>
       <div className='Body-container'>
       <Routes>
-       <Route path='/courses'  element={<Course/>} /> 
+       <Route path='/' element={<Course/>} /> 
        <Route path='/create-course' element={<CreateCourse />}  />
       </Routes>
       </div>
