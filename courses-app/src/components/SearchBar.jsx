@@ -20,7 +20,7 @@ export const SearchBar = () => {
       setSearch(value.toLocaleLowerCase())
     }
   },[value, setSearch])
-
+  
   function handleSearch() { 
     setSearch(value.toLocaleLowerCase()) 
   }

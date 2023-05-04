@@ -58,15 +58,15 @@ const CreateCourse = () => {
           <div className='create'>
               <div className='title'>
                 <h3 className='title-label'>Title</h3>
-                <Form.Item rules={[{ required: true, message: 'please enter the course title!' }]} placeholder='Enter title...' name="title">
-                  <Input/>
+                <Form.Item  rules={[{ required: true, message: 'please enter the course title!' }]} placeholder='Enter title...' name="title">
+                  <Input className='titleInput'/>
                 </Form.Item>
               </div>
               <Button>Create Course</Button>
           </div>
           <h3 className='title-label'>Description</h3>
           <Form.Item rules={[{ required: true, message: 'please enter the description of the course!' }]} placeholder='Enter description...' name="description">
-            <Input.TextArea/>
+            <Input.TextArea className='textarea'/>
           </Form.Item>
         </div>
         <div className='create-info'>
@@ -74,7 +74,7 @@ const CreateCourse = () => {
             <div className='add-author'>
                 <h3 className='author-label'>Add author</h3>
                 <Form.Item placeholder='Enter author name...' name="authorName">
-                  <Input onChange={(event) => setAuthorName(event.target.value)} />
+                  <Input className='authorname' onChange={(event) => setAuthorName(event.target.value)}  />
                 </Form.Item>
                 <Button onClick={createAuthor}>Create author</Button>
             </div>

@@ -13,6 +13,12 @@
   font-weight: 200;
 }
 
+.titleInput{
+  height: 48px;
+  border-color: rgb(189 71 34 / 61%) ;
+  border-radius: 0;
+}
+
 .create-info{
   border: 1px solid black;
   padding: 20px 50px 50px 50px;
@@ -21,6 +27,11 @@
   flex-direction: row;
   gap: 70px;
   justify-content: space-between;
+}
+
+.textarea{
+  border: 1px solid yellow;
+  border-radius: 0;
 }
 
 .textarea:focus-visible{
@@ -40,6 +51,12 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+}
+
+.authorname{
+  border-color: rgb(189 71 34 / 61%);
+  height: 35px;
+  border-radius: 0;
 }
 
 .author-label{
