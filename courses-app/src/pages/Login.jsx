@@ -2,11 +2,13 @@ import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useSearchContext } from '../context/SearchContext';
 import '../styles/Login.css'
 
 export const Login = () => {
 
   const navigate = useNavigate();
+  const { setUserName } = useSearchContext();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +25,9 @@ export const Login = () => {
     event.preventDefault();
     axios.post('http://localhost:4000/login', { email, password })
       .then(response => {
+        console.log(response.data.user.name);
         window.localStorage.setItem('token', response.data.result);
+        setUserName(response.data.user.name);
         navigate('/courses');
       })
       .catch(error => {

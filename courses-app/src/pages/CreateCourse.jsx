@@ -31,8 +31,6 @@ const CreateCourse = () => {
     setCourseAuthors(newCourseAuthorsList);
   }
 
-
-
   const createAuthor = () => {
     if (authorName !== '') {
       const authorId = uuidv4();
@@ -47,7 +45,6 @@ const CreateCourse = () => {
   const toHoursAndMinutes = (totalMinutes) => {
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
-    console.log(moment(`${hours}:${minutes}`, 'hh:mm').format())
     setDuration(`${hours}:${minutes}`)
   }
 
