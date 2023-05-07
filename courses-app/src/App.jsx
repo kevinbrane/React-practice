@@ -4,6 +4,9 @@ import { Header } from './components/Header'
 import Course from './pages/Course'
 import CreateCourse from './pages/CreateCourse'
 import { SearchProvider } from './context/SearchContext'
+import { Registration} from './pages/Registration'
+import { Login } from './pages/Login'
+import { CourseInfo } from './pages/CourseInfo'
 
 export const App = () => {
   return (
@@ -13,8 +16,12 @@ export const App = () => {
       <Header/>
       <div className='Body-container'>
       <Routes>
-       <Route path='/' element={<Course/>} /> 
-       <Route path='/create-course' element={<CreateCourse />}  />
+       <Route path='/courses' element={<Course/>} /> 
+       <Route path='/create-course' element={<CreateCourse />}/>
+       <Route path='/registration' element={<Registration/>}/>
+       <Route path='/' element={<Login/>}/>
+       <Route path='/Login' element={<Login/>}/>
+       <Route path='/course/:courseId' element={<CourseInfo/>}/>
       </Routes>
       </div>
     </SearchProvider>
