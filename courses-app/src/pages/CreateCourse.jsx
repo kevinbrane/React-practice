@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { Button, Form, Input } from 'antd';
-import moment from 'moment';
+import { useDispatch } from 'react-redux';
 
 import '../styles/CreateCourse.css'
 import {  mockedAuthorsList } from '../mocks/mockedAuthorsList'
+import { addCourse } from '../store/courses/thunk'
 
 const CreateCourse = () => {
+  const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
   const [authors, setAuthors] = useState(mockedAuthorsList);
   const [courseAuthors, setCourseAuthors] = useState([]);
   const [authorName, setAuthorName] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [duration, setDuration] = useState('00:00');
 
   const removeValue = (id, authorsArray) => {
@@ -48,6 +53,16 @@ const CreateCourse = () => {
     setDuration(`${hours}:${minutes}`)
   }
 
+  const onSubmit = () => {
+    const body = {
+      title,
+      description,
+      duration,
+      authors
+    }
+    addCourse(body, token)(dispatch);
+  }
+
   return (
     <Form>
       <div className='createCourse'>
@@ -56,14 +71,14 @@ const CreateCourse = () => {
               <div className='title'>
                 <h3 className='title-label'>Title</h3>
                 <Form.Item  rules={[{ required: true, message: 'please enter the course title!' }]} placeholder='Enter title...' name="title">
-                  <Input className='titleInput'/>
+                  <Input className='titleInput' onChange={(event) => setTitle(event.target.value)}/>
                 </Form.Item>
               </div>
-              <Button>Create Course</Button>
+              <Button onClick={onSubmit}>Create Course</Button>
           </div>
           <h3 className='title-label'>Description</h3>
           <Form.Item rules={[{ required: true, message: 'please enter the description of the course!' }]} placeholder='Enter description...' name="description">
-            <Input.TextArea className='textarea'/>
+            <Input.TextArea className='textarea' onChange={(event) => setDescription(event.target.value)} />
           </Form.Item>
         </div>
         <div className='create-info'>

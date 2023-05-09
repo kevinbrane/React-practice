@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import { Header } from "./components/Header";
 import Course from "./pages/Course";
 import CreateCourse from "./pages/CreateCourse";
@@ -8,7 +9,9 @@ import { Registration } from "./pages/Registration";
 import { Login } from "./pages/Login";
 import { CourseInfo } from "./pages/CourseInfo";
 
-export const App = () => {
+import { loginSuccess, loginFailure, logout } from './store/user/actionCreators'
+
+const App = () => {
   const token = localStorage.getItem("token");
 
   return (
@@ -31,3 +34,15 @@ export const App = () => {
     </BrowserRouter>
   );
 };
+
+const mapStateToProps = (state) => ({
+  ...state,
+})
+
+const mapDispatchToProps = dispatch => ({
+  loginSuccess: (user, token , rol) => dispatch(loginSuccess(user, token, rol)),
+  loginFailure: (error) => dispatch(loginFailure(error)),
+  logout: () => dispatch(logout),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

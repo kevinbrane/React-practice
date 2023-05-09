@@ -2,11 +2,14 @@ import React from 'react'
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
 import { useSearchContext } from '../context/SearchContext';
 import '../styles/Login.css'
+import { loginFailure } from '../store/user/actionCreators';
+import { fetchUser } from '../store/user/thunk';
 
 export const Login = () => {
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { setUserName } = useSearchContext();
 
@@ -25,12 +28,13 @@ export const Login = () => {
     event.preventDefault();
     axios.post('http://localhost:4000/login', { email, password })
       .then(response => {
-        console.log(response.data.user.name);
         window.localStorage.setItem('token', response.data.result);
         setUserName(response.data.user.name);
+        fetchUser(response.data.user, response.data.result)(dispatch);
         navigate('/courses');
       })
       .catch(error => {
+        dispatch(loginFailure(error));
         alert('There was an error login in the user', error.message);
       });
   }
