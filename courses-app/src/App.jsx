@@ -8,6 +8,8 @@ import { SearchProvider } from "./context/SearchContext";
 import { Registration } from "./pages/Registration";
 import { Login } from "./pages/Login";
 import { CourseInfo } from "./pages/CourseInfo";
+import PrivateRoute from './components/PrivateRouter/PrivateRouter';
+import CourseForm  from "./components/CourseForm/CourseForm";
 
 import { loginSuccess, loginFailure, logout } from './store/user/actionCreators'
 
@@ -26,7 +28,8 @@ const App = () => {
               <Route path="/registration" element={<Registration />} />
               <Route path="/" element={!token ? <Login /> : <Course />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/course/:courseId" element={<CourseInfo />} />
+              <Route path="/course/:courseId" element= {<PrivateRoute> <CourseInfo/></PrivateRoute>}/>
+              <Route path='/courses/update/:courseId'element={<PrivateRoute><CourseForm /></PrivateRoute>}/>
             </Routes>
           </div>
         </SearchProvider>
